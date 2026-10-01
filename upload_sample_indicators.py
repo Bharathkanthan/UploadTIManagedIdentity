@@ -3,7 +3,7 @@ import os
 import uuid
 
 import requests
-from azure.identity import DefaultAzureCredential
+from azure.identity import ManagedIdentityCredential
 
 
 API_VERSION = "2024-02-01-preview"
@@ -34,9 +34,9 @@ def create_sample_indicator(ip_address: str, now: datetime.datetime) -> dict:
     }
 
 
-def get_azure_credential() -> DefaultAzureCredential:
-    client_id = os.getenv("AZURE_CLIENT_ID")
-    return DefaultAzureCredential(managed_identity_client_id=client_id)
+def get_azure_credential() -> ManagedIdentityCredential:
+    # No client_id: uses the system-assigned managed identity of the hosting Azure resource.
+    return ManagedIdentityCredential()
 
 
 def upload_sample_indicators() -> dict[str, object]:
