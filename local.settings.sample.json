@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "WORKSPACE_ID": "<sentinel-workspace-id>",
+    "UPLOAD_SCHEDULE": "0 */2 * * * *"
+  }
+}
